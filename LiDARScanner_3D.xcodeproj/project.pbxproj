@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		95D7B8F12D82035700747E0E /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D7B8F02D82035700747E0E /* ARKit.framework */; };
+		95D7B8F32D82036300747E0E /* RealityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D7B8F22D82036300747E0E /* RealityKit.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		95D7B8D22D82000C00747E0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		95D7B8BB2D82000900747E0E /* LiDARScanner_3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiDARScanner_3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D7B8D12D82000C00747E0E /* LiDARScanner_3DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiDARScanner_3DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D7B8DB2D82000C00747E0E /* LiDARScanner_3DUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LiDARScanner_3DUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95D7B8F02D82035700747E0E /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		95D7B8F22D82036300747E0E /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -34,6 +41,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				LiDARProcessor.swift,
 			);
 			target = 95D7B8BA2D82000900747E0E /* LiDARScanner_3D */;
 		};
@@ -48,16 +56,6 @@
 			path = LiDARScanner_3D;
 			sourceTree = "<group>";
 		};
-		95D7B8D42D82000C00747E0E /* LiDARScanner_3DTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LiDARScanner_3DTests;
-			sourceTree = "<group>";
-		};
-		95D7B8DE2D82000C00747E0E /* LiDARScanner_3DUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LiDARScanner_3DUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D7B8F32D82036300747E0E /* RealityKit.framework in Frameworks */,
+				95D7B8F12D82035700747E0E /* ARKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,8 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				95D7B8BD2D82000900747E0E /* LiDARScanner_3D */,
-				95D7B8D42D82000C00747E0E /* LiDARScanner_3DTests */,
-				95D7B8DE2D82000C00747E0E /* LiDARScanner_3DUITests */,
+				95D7B8EF2D82035400747E0E /* Frameworks */,
 				95D7B8BC2D82000900747E0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +102,15 @@
 				95D7B8DB2D82000C00747E0E /* LiDARScanner_3DUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		95D7B8EF2D82035400747E0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95D7B8F22D82036300747E0E /* RealityKit.framework */,
+				95D7B8F02D82035700747E0E /* ARKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +151,6 @@
 			dependencies = (
 				95D7B8D32D82000C00747E0E /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				95D7B8D42D82000C00747E0E /* LiDARScanner_3DTests */,
-			);
 			name = LiDARScanner_3DTests;
 			packageProductDependencies = (
 			);
@@ -165,9 +170,6 @@
 			);
 			dependencies = (
 				95D7B8DD2D82000C00747E0E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				95D7B8DE2D82000C00747E0E /* LiDARScanner_3DUITests */,
 			);
 			name = LiDARScanner_3DUITests;
 			packageProductDependencies = (
@@ -292,6 +294,8 @@
 				DEVELOPMENT_TEAM = X5NJD7LPH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiDARScanner_3D/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"This app requires camera access for LiDAR scanning.\"";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "\"Face ID is required for some AR features.\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -320,6 +324,8 @@
 				DEVELOPMENT_TEAM = X5NJD7LPH6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LiDARScanner_3D/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"This app requires camera access for LiDAR scanning.\"";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "\"Face ID is required for some AR features.\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
